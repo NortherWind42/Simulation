@@ -3,67 +3,89 @@
 
 <head>
 	<title>Simulation</title>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.6.0/math.min.js"></script>
 
-	<!-- load http://maurizzzio.github.io/function-plot/ -->
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-	<script src="https://wzrd.in/standalone/function-plot@1.14.0"></script>
+	<script src="node_modules/d3/d3.js"></script>
+	<script src="node_modules/function-plot/dist/function-plot.js"></script>
+
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
 	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-	<table>
-		<tr>
-			<td>
-				<label for="function">Функция:</label>
-			</td>
-			<td>
-				<input type="text" id="function" value="1.5 * x + 6.4" />
-			</td>
-		</tr>
+	<div class="container">
+		<div class="page-header" id="banner">
+			<div class="row">
+				<div class="col-sm-6">
+					<h1>Метод Монте-Карло</h1>
 
-		<tr>
-			<td>
-				<label for="start">от</label>
-			</td>
-			<td>
-				<input type="text" id="start" value="-4">
-			</td>
-		</tr>
+					<p class="lead">Васильев Олег | ПИр-131</p>
+				</div>
+				<div class="col-sm-6">
+					<div class="well infobox">
+						<div class="row">
+							<div class="form-group">
+								<label for="function" class="control-label col-sm-2">Функция</label>
 
-		<tr>
-			<td>
-				<label for="finish">до</label>
-			</td>
-			<td>
-				<input type="text" id="finish" value="7.4">
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<button onclick="draw()">Рассчитать</button>
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<button onclick="addPoint()">Добавить точку</button>
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<button onclick="getVal()">getVal</button>
-			</td>
-		</tr>
-	</table>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="function" placeholder="1.5 * x + 6.4" value="1.5 * x + 6.4">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group label-floating">
+									<label for="start" class="control-label">От</label>
+									<input type="text" class="form-control" id="start" value="-10">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group label-floating">
+									<label for="finish" class="control-label">До</label>
+									<input type="text" class="form-control" id="finish" value="10">
+								</div>
+							</div>
+						</div>
+						<div class="container">
+							<a href="javascript:mcm.drawPlot();" class="btn btn-default btn-lg btn-raised btn-primary">построить график</a>
+						</div>
+						<div class="row">
+							<div class="form-group">
+								<label for="pointCount" class="control-label col-sm-2">Количество точек</label>
 
-	<div id="plot"></div>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="pointCount" placeholder="100" value="100">
+								</div>
+							</div>
+						</div>
+						<div class="container">
+							<a href="javascript:mcm.addPoints(document.getElementById('pointCount').value)" class="btn btn-default btn-raised btn-primary">добавить</a>
+							<a href="javascript:mcm.getSquare()" class="btn btn-default btn-raised btn-primary btn-lg">Вычислить площадь</a>
+
+						</div>
 
 
-	<script src="script.js"></script>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="plot"></div>
+
+	</div>
+
+
+
+
+	<script src="monteCarloMethod.js"></script>
+	<script>let mcm = new monteCarloMethod();</script>
+
+	<script src="node_modules\jquery\dist\jquery.min.js"></script>
+	<script src="node_modules\bootstrap\dist\js\bootstrap.min.js"></script>
+	<script src="node_modules\bootstrap-material-design\dist\js\material.min.js"></script>
+	<script src="node_modules\bootstrap-material-design\dist\js\ripples.min.js"></script>
+
+	<script>$.material.init()</script>
 
 </body>
 

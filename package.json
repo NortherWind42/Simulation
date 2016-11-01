@@ -9,9 +9,6 @@
     "type": "git",
     "url": "//github.com/NorthernWind42/Simulations.git"
   },
-  "keywords": [
-    "TEDx"
-  ],
   "author": "Oleg Vasiluev",
   "license": "ISC",
   "devDependencies": {
@@ -25,6 +22,9 @@
   },
   "dependencies": {
     "bootstrap": "3.3.7",
-    "function-plot": "^1.17.3"
+    "d3": "3.5.5",
+    "function-plot": "1.17.3",
+    "bootstrap-material-design": "0.5.10",
+    "jquery": "3.1.1"
   }
 }
